@@ -2,7 +2,7 @@
 
 # 🛡️ TryHackMe Write-Ups
 
-**by [amirshahrir](https://github.com/amirshahrir)**
+**by [amirshahrir](https://www.linkedin.com/in/amirshahrir/)**
 
 > *Documenting my cybersecurity learning journey through TryHackMe — write-ups, methodology notes, and walkthroughs.*
 
