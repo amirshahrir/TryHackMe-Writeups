@@ -38,7 +38,7 @@ The goal is to reinforce learning and gain experience on hand-on labs after comp
 | 01 | Start Your Cybersecurity Journey | ✅ |
 | 02 | Linux Fundamentals | ✅ |
 | 03 | Windows and AD Fundamentals | ✅ |
-| 04 | Command Line | ⬜ |
+| 04 | Command Line | ✅ |
 | 05 | Networking | ⬜ |
 | 06 | Cryptography | ⬜ |
 | 07 | Exploitation Basics | ⬜ |
