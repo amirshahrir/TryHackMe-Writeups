@@ -1,5 +1,5 @@
 ```
-Room         : Comitted
+Room         : Committed
 Platform     : TryHackMe
 Difficulty   : Easy
 Date         : 16/06/2026
@@ -53,6 +53,9 @@ The commit history on the active branch was reviewed using the condensed format 
 git log --oneline
 ```
 
+![Master Branch listing](screenshots/git-master-branch-investigate.png)
+
+
 The short commit hashes returned by `--oneline` were used to inspect each commit individually:
 
 ```bash
@@ -62,6 +65,7 @@ git show <commit_id>
 Each commit on master was examined in turn. None of the diffs contained credential-related content, and no commit message suggested a sensitive change. Master was a dead end.
 
 ---
+
 
 #### Phase 2 — Branch Enumeration and Commit Analysis
 
@@ -77,6 +81,7 @@ Two branches were returned: `master` and `dbint`. The working tree was switched 
 git checkout dbint
 git log --oneline
 ```
+![Branch listing revealing master and the non-default dbint branch](screenshots/git-branch-investigate.png)
 
 The commit list included a commit with the message `"ops"` — an informal shorthand that stood out immediately as a likely acknowledgement of a mistake. That commit was inspected:
 
@@ -97,7 +102,7 @@ The diff confirmed it: a plaintext password had been hardcoded directly into the
 
 ---
 
-_Write-up by Amir Shahrir | https://github.com/amirshahrir | Completed: [Date]_
+_Write-up by Amir Shahrir | https://github.com/amirshahrir | Completed: 16/6/2026_
 _Note: This write-up is for educational purposes. All activities were conducted in an isolated, legal lab environment provided by TryHackMe._
 
 ```
