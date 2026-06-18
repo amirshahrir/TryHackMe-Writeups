@@ -40,11 +40,14 @@ The challenge presented a PDF document containing a QR code concealed beneath an
 
 The working directory `/home/ubuntu/confidential` was navigated to, where the target file `Repdf.pdf` was located. Opening the PDF through the desktop viewer confirmed a QR code was visible within the document, but an overlaid image element was blocking it — making the code unreadable through normal means.
 
+![original PDF file](https://github.com/amirshahrir/TryHackMe-Writeups/blob/main/Challenges/Confidential/screenshots/image-1-pft-content.png)
+
 To understand the document's internal structure, `pdfimages` was run with the `-list` flag to enumerate all embedded image objects without extracting them:
 
 ```bash
 pdfimages -list Repdf.pdf
 ```
+![listing reveals the images in the PDF file](https://github.com/amirshahrir/TryHackMe-Writeups/blob/main/Challenges/Confidential/screenshots/image-2-extracted-images.png)
 
 The output revealed three image objects: one classified as smask (a soft mask, typically used as a transparency or alpha channel layer) and two standard image types. This confirmed that multiple image layers were stacked within the PDF — one of which was the obscuring overlay, and another was the underlying QR code.
 All images were then extracted as PNG files using the following command:
@@ -55,6 +58,8 @@ pdfimages -png Repdf.pdf extracted_qr
 
 PNG was chosen deliberately — it is a lossless format, meaning no image data is discarded during conversion. For machine-readable content such as QR codes, any compression artefacts introduced by a lossy format (such as JPEG) risk corrupting the encoded data and causing decoding failures.
 This produced a set of sequentially named files (`extracted_qr-000.png, extracted_qr-001.png,` etc.). Cross-referencing the extraction order with the desktop viewer confirmed that extracted_qr-000.png corresponded to the QR code image.
+
+![listing reveals the images in the PDF file](https://github.com/amirshahrir/TryHackMe-Writeups/blob/main/Challenges/Confidential/screenshots/image-3-extracted-images-desktop.png)
 
 An attempt was made to decode the QR code programmatically using zbarimg:
 bashzbarimg extracted_qr-000.png
