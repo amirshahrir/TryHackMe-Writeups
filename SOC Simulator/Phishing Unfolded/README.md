@@ -1,8 +1,11 @@
 # TryHackMe SOC Simulator — Phishing Unfolding
 
 **Room:** Phishing Unfolding (SOC Simulator)
+
 **Date of activity:** 18 August 2026
+
 **Role:** SOC Analyst L1
+
 **Alerts triaged:** 35 total (Low / Medium / High severity)
 
 ---
@@ -77,3 +80,7 @@ _Note: additional historical alerts tied to Case 1005 were identified during inv
 - Alert on/restrict `net.exe` drive-mapping activity to sensitive shares from non-admin hosts.
 - Isolate/reimage the affected host and rotate credentials used during the session.
 - Review SMB access logs on `\\FILESRV-01\SSF-FinancialRecords` for data staged or accessed beyond what's confirmed here.
+
+---
+**THM Summary URL:** https://tryhackme.com/soc-sim/public-summary/849555de73a6f3b40e0352db1165c463b44fcd68dbcda287cbb50a32e2f58660a24d444d5f8e23c4e6e9a81e0a44273c
+---
